@@ -2,14 +2,16 @@ const seedType = require('./property_type-seeds')
 const seedCommercials = require('./commercial-seeds');
 const seedRent = require('./rent-seeds');
 const seedResidentials = require('./residential-seeds');
-
+const seedStatus = require('./status-seed')
 const sequelize = require('../config/connection');
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
   console.log('\n----- DATABASE SYNCED -----\n');
 
-  
+  await seedStatus();
+  console.log('\n----- Rent SEEDED -----\n');
+
   await seedType();
   console.log('\n----- Rent SEEDED -----\n');
 

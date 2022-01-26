@@ -75,6 +75,18 @@ Residential.init(
     location:{
         type:DataTypes.STRING,
         allowNull:true
+    },
+    status_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'status',
+        key: 'id',
+        unique: false
+      },
+  },
+    onPlan:{
+      type: DataTypes.BOOLEAN,
+      defaultValue:false
     }
   },
   {
