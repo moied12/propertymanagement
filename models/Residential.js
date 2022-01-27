@@ -20,14 +20,14 @@ Residential.init(
           unique: false
         }
     },
-    // property_city_id: {
-    //     type: DataTypes.INTEGER,
-    //     references: {
-    //       model: 'city',
-    //       key: 'id',
-    //       unique: false
-    //     },
-    // },
+    city_id: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'cities',
+          key: 'id',
+          unique: false
+        },
+    },
     // property_location_id: {
     //     type: DataTypes.INTEGER,
     //     references: {
@@ -52,10 +52,10 @@ Residential.init(
   //       unique: false
   //     }
   // },
-  // description:{
-  //   type : DataTypes.TEXT,
-  //   allowNull:true
-  // },
+  description:{
+    type : DataTypes.TEXT,
+    allowNull:true
+  },
     price:{
         type:DataTypes.INTEGER,
         defaultValue:1000,

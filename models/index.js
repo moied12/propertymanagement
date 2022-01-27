@@ -4,6 +4,7 @@ const Residential = require('./Residential');
 const Rent = require('./Rent')
 const Residential_type = require('./Residential_type')
 const Status = require('./Status')
+const Cities = require('./Cities')
 
 Residential.belongsTo(Rent,{
   foreignKey: 'duration_id'
@@ -37,7 +38,16 @@ Status.hasMany(Residential, {
   foreignKey: 'status_id',
 });
 
+Residential.belongsTo(Status,{
+  foreignKey: 'city_id'
+});
+
+Cities.hasMany(Residential, {
+  foreignKey: 'city_id',
+});
+
 module.exports = {
+  Cities,
   Status,
   Residential_type,
   Commercial,

@@ -12,7 +12,7 @@ app.use(express.json());
 // );
 // The `/api/auth` endpoint
 app.post("/new", async (req, res) => {
-    const {duration,price,name,beds,baths,area,furnished,location,property_type_id, status_id} = req.body;
+    const {duration,price,name,beds,baths,area,furnished,location,property_type_id, status_id,city_id} = req.body;
     Residential.create({
             duration:duration,
             price:price,
@@ -24,6 +24,7 @@ app.post("/new", async (req, res) => {
             location:location,
             property_type_id:property_type_id,
             status_id:status_id,
+            city_id:city_id,
 
         })
             .then(() => {
