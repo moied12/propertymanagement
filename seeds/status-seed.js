@@ -2,18 +2,23 @@ const { Status } = require('../models');
 
 const statusData = [
   {
-    duration: '3 months',
+    value: 'Rented',
   },
   {
-    duration: '6 months',
+    value: 'Sold',
   },
   {
-    duration: '12 months',
+    value: 'Reserved',
   },
   {
-    duration: 'Buy',
+    value: 'Available',
   },
-
+  {
+    value: 'Active',
+  },
+  {
+    value: 'Non Active',
+  },
 ];
 
 const seedStatus = () => Status.bulkCreate(statusData);

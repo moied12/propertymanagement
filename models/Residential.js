@@ -28,6 +28,14 @@ Residential.init(
     //       unique: false
     //     },
     // },
+    // property_location_id: {
+    //     type: DataTypes.INTEGER,
+    //     references: {
+    //       model: 'city',
+    //       key: 'id',
+    //       unique: false
+    //     },
+    // },
     duration_id: {
         type: DataTypes.INTEGER,
         references: {
@@ -36,6 +44,18 @@ Residential.init(
           unique: false
         },
     },
+  //   images:{
+  //     type: DataTypes.INTEGER,
+  //     references: {
+  //       model: 'images',
+  //       key: 'id',
+  //       unique: false
+  //     }
+  // },
+  // description:{
+  //   type : DataTypes.TEXT,
+  //   allowNull:true
+  // },
     price:{
         type:DataTypes.INTEGER,
         defaultValue:1000,
@@ -83,6 +103,7 @@ Residential.init(
         key: 'id',
         unique: false
       },
+      defaultValue:1
   },
     onPlan:{
       type: DataTypes.BOOLEAN,
