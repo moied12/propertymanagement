@@ -12,15 +12,23 @@ Commercial.init(
       primaryKey: true,
       autoIncrement: true
     },
-    // property_type_id: {
-    //     type: DataTypes.INTEGER,
-    //     references: {
-    //       model: 'residental_types',
-    //       key: 'id',
-    //       unique: false
-    //     }
-    // },
-    // property_city_id: {
+    property_type_id: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'property_type',
+          key: 'id',
+          unique: false
+        }
+    },
+    city_id: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'cities',
+          key: 'id',
+          unique: false
+        },
+    },
+    // property_location_id: {
     //     type: DataTypes.INTEGER,
     //     references: {
     //       model: 'city',
@@ -36,6 +44,18 @@ Commercial.init(
           unique: false
         },
     },
+  //   images:{
+  //     type: DataTypes.INTEGER,
+  //     references: {
+  //       model: 'images',
+  //       key: 'id',
+  //       unique: false
+  //     }
+  // },
+  description:{
+    type : DataTypes.TEXT,
+    allowNull:true
+  },
     price:{
         type:DataTypes.INTEGER,
         defaultValue:1000,
@@ -52,9 +72,26 @@ Commercial.init(
           isNumeric: true,
         }
       },
+    furnished: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+    },
     location:{
         type:DataTypes.STRING,
         allowNull:true
+    },
+    status_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'status',
+        key: 'id',
+        unique: false
+      },
+      defaultValue:1
+  },
+    onPlan:{
+      type: DataTypes.BOOLEAN,
+      defaultValue:false
     }
   },
   {

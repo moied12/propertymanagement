@@ -5,23 +5,19 @@ const { Commercial } = require('../../models');
 var cors = require('cors')
 
 app.use(express.json());
-// app.use(cors({
-//     origin: 'http://localhost:3000',
-//     credentials: true,
-// })
-// );
-// The `/api/auth` endpoint
 app.post("/new", async (req, res) => {
-    const {duration,price,name,beds,baths,area,furnished,location} = req.body;
+    const {duration,price,name,area,furnished,location,property_type_id, status_id,city_id} = req.body;
     Commercial.create({
             duration:duration,
             price:price,
             name:name,
-            beds:beds,
-            baths:baths,
             area:area,
             furnished:furnished,
-            location:location
+            location:location,
+            property_type_id:property_type_id,
+            status_id:status_id,
+            city_id:city_id,
+
         })
             .then(() => {
                 res.json("Commercial REGISTERED SUCCESSFULLY");

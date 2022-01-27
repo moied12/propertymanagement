@@ -15,7 +15,7 @@ Residential.init(
     property_type_id: {
         type: DataTypes.INTEGER,
         references: {
-          model: 'residential_type',
+          model: 'property_type',
           key: 'id',
           unique: false
         }

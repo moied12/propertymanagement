@@ -1,4 +1,4 @@
-const { Residential_type } = require('../models');
+const { Property_type } = require('../models');
 
 const typeData = [
   {
@@ -72,6 +72,6 @@ const typeData = [
   },
 ];
 
-const seedType = () => Residential_type.bulkCreate(typeData);
+const seedType = () => Property_type.bulkCreate(typeData);
 
 module.exports = seedType;

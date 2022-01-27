@@ -11,6 +11,7 @@ const resData = [
     furnished:false,
     location: 'apppl312e',
     property_type_id:2,
+    city_id:1,
   },
   {
     duration_id: 1,
@@ -22,6 +23,7 @@ const resData = [
     furnished:false,
     location: 'appp12le',
     property_type_id:2,
+    city_id:1,
   },
   {
     duration_id: 1,
@@ -33,6 +35,7 @@ const resData = [
     furnished:false,
     location: 'appp123le',
     property_type_id:2,
+    city_id:1,
   },
 ];
 

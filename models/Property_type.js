@@ -2,9 +2,9 @@ const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection.js');
 
-class Residential_type extends Model {}
+class Property_type extends Model {}
 
-Residential_type.init(
+Property_type.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -21,8 +21,8 @@ Residential_type.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'residential_type',
+    modelName: 'property_type',
   }
 );
 
-module.exports = Residential_type;
+module.exports = Property_type;
