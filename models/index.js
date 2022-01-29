@@ -5,6 +5,7 @@ const Rent = require('./Rent')
 const Property_type = require('./Property_type')
 const Status = require('./Status')
 const Cities = require('./Cities')
+const Users = require('./Users')
 
 
 Residential.belongsTo(Cities,{
@@ -61,6 +62,7 @@ Status.hasMany(Commercial, {
 
 
 module.exports = {
+  Users,  
   Cities,
   Status,
   Property_type,
