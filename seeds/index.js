@@ -6,6 +6,7 @@ const seedStatus = require('./status-seed')
 const seedCities = require('./city-seed')
 
 const sequelize = require('../config/connection');
+const seedUsers = require('./users-seed');
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
@@ -28,6 +29,9 @@ const seedAll = async () => {
 
   await seedCommercials();
   console.log('\n----- COMMERCIALS SEEDED -----\n');
+
+  await seedUsers();
+  console.log('\n----- USERS  SEEDED -----\n');
 
   process.exit(0);
 };

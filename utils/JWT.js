@@ -2,10 +2,9 @@ const { sign, verify } = require("jsonwebtoken");
 const token_secret = process.env.ACCESS_TOKEN_SECRET
 const createTokens = (user) => {
     const accessToken = sign(
-        { email: user.email, id: user.id },
+        { email: user.email, id: user.id ,name: user.name},
         token_secret
     );
-
     return accessToken;
 };
 
@@ -26,4 +25,9 @@ const validateToken = (req, res, next) => {
     }
 };
 
-module.exports = { createTokens, validateToken };
+const getUser= (accessToken)=>{
+    let user = verify(accessToken, token_secret);
+    delete user.iat;
+    return user
+}
+module.exports = {createTokens, validateToken, getUser};
