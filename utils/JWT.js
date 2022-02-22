@@ -1,8 +1,8 @@
 const { sign, verify } = require("jsonwebtoken");
-const token_secret = process.env.ACCESS_TOKEN_SECRET
+const token_secret = "jOcu7nbC1Oj0vSoFi1fyx4NbYOGWKRGkWzrzaaxAjPk0nFhepVb1lOkEsjc0j49fKMyrCR2zid3B7hTuIAH9OxlxBmgHNbaX4l751LQW1NblYIveueXj6wpP0wBI0KfYxmKqYl6ZbcwRkbaIK8gzaDWGds4dr0od3sCpebsHNbzZYo4N15nrG4zPTFepHufBieI1LeNV"
 const createTokens = (user) => {
     const accessToken = sign(
-        { email: user.email, id: user.id ,name: user.name},
+        { email: user.email, id: user.id ,name: user.name, is_admin:user.is_admin},
         token_secret
     );
     return accessToken;

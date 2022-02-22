@@ -6,6 +6,7 @@ const Property_type = require('./Property_type')
 const Status = require('./Status')
 const Cities = require('./Cities')
 const User = require('./User')
+const Brokers = require('./Brokers')
 
 
 Residential.belongsTo(Cities,{
@@ -61,7 +62,20 @@ Status.hasMany(Commercial, {
 });
 
 
+Brokers.belongsTo(User, {
+  foreignKey: 'user_id',
+});
+
+Residential.belongsTo(User, {
+  foreignKey: 'user_id',
+});
+Commercial.belongsTo(User, {
+  foreignKey: 'user_id',
+});
+
+
 module.exports = {
+  Brokers,
   User,  
   Cities,
   Status,

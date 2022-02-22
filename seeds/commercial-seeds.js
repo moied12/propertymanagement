@@ -10,6 +10,7 @@ const comData = [
     location: 'apppl312e',
     property_type_id:2,
     city_id:1,
+    user_id:2
   },
   {
     duration_id: 1,
@@ -20,6 +21,7 @@ const comData = [
     location: 'appp12le',
     property_type_id:2,
     city_id:1,
+    user_id:2
   },
   {
     duration_id: 1,
@@ -30,6 +32,7 @@ const comData = [
     location: 'appp123le',
     property_type_id:2,
     city_id:1,
+    user_id:2
   },
 ];
 

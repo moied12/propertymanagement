@@ -6,17 +6,25 @@ class Brokers extends Model {}
 
 Brokers.init(
   {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true
-    },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    phone,email,rera,visa,reraexp,visaexp, image, password, salary
+  rera: {
+    type: DataTypes.INTEGER,
+  },
+  eid_number: {
+    type: DataTypes.INTEGER,
+  },
+  // [0-9]{3}-[0-9]{4}-[0-9]{7}-[0-9]
+  reraexp: {
+    type: DataTypes.DATEONLY,
+  },
+  visaexp: {
+    type: DataTypes.DATEONLY,
+  },
+   image: {
+    type: DataTypes.STRING,
+  },
+   salary: {
+    type: DataTypes.INTEGER,
+  },
   },
   {
     sequelize,

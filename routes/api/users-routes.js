@@ -15,13 +15,14 @@ app.use(cors()
 );
 
 app.post("/register", async (req, res) => {
-    const { name, password, phone, email } = req.body;
+    const { name, password, phone, email,is_admin } = req.body;
     bcrypt.hash(password, 10).then((hashedPassword) => {
         User.create({
             name: name,
             password: hashedPassword,
             phone: phone,
-            email: email
+            email: email,
+            is_admin:is_admin,
         })
             .then(() => {
                 res.json("USER REGISTERED SUCCESSFULLY");
@@ -57,8 +58,27 @@ app.post("/login",cors(), async (req, res) => {
     });
 });
 
-app.get("/profile", (req, res) => {
-    res.json(getUser(req.cookies["access-token"]));
+app.get("/profile/:data", (req, res) => {
+    res.status(200).json(getUser(req.params.data));
 });
 
+app.get("/all/:data", async (req,res) => {
+    const userprof = getUser(req.params.data)
+    if (userprof["is_admin"] == 1){
+        const resData = await User.findAll(
+            // {
+        //     where: {
+        //       id: {
+        //         [sequelize.Op.not]: userprof["id"]
+        //       },
+        //     }
+        //   }
+          );
+    
+         res.status(200).json(resData);
+    }
+    else{
+        res.status(400).json("Current User is not admin")
+    }
+})
 module.exports = app;

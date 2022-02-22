@@ -7,6 +7,7 @@ const seedCities = require('./city-seed')
 
 const sequelize = require('../config/connection');
 const seedUsers = require('./users-seed');
+const seedBrokers = require('./broker-seed');
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
@@ -23,6 +24,9 @@ const seedAll = async () => {
 
   await seedRent();
   console.log('\n----- RENT SEEDED -----\n');
+  
+  await seedUsers();
+  console.log('\n----- USERS  SEEDED -----\n');
 
   await seedResidentials();
   console.log('\n----- RESIDENTIALS SEEDED -----\n');
@@ -30,9 +34,9 @@ const seedAll = async () => {
   await seedCommercials();
   console.log('\n----- COMMERCIALS SEEDED -----\n');
 
-  await seedUsers();
-  console.log('\n----- USERS  SEEDED -----\n');
 
+  await seedBrokers();
+  
   process.exit(0);
 };
 

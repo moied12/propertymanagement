@@ -35,11 +35,6 @@ User.init(
             defaultValue: false,
             allowNull: false
         },
-        is_seller: {
-            type: DataTypes.BOOLEAN,
-            defaultValue: false,
-            allowNull: false
-        },
     },
     {
         sequelize,
