@@ -7,7 +7,6 @@ const userData = [
     password: 'impakt1234',
     phone: '030012345671',
     is_admin: true,
-    is_seller: true,
   },
   {
     name: 'test-customer',
@@ -15,7 +14,6 @@ const userData = [
     password: 'impakt1234',
     phone: '030012345672',
     is_admin: false,
-    is_seller: false,
   },
   {
     name: 'test-seller',
@@ -23,7 +21,6 @@ const userData = [
     password: 'impakt1234',
     phone: '030012345673',
     is_admin: false,
-    is_seller: false,
   },
 
 ];

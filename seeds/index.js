@@ -8,6 +8,7 @@ const seedCities = require('./city-seed')
 const sequelize = require('../config/connection');
 const seedUsers = require('./users-seed');
 const seedBrokers = require('./broker-seed');
+const seedCustomer = require('./customer-seed');
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
@@ -36,6 +37,8 @@ const seedAll = async () => {
 
 
   await seedBrokers();
+  await seedCustomer();
+
   
   process.exit(0);
 };

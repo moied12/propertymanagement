@@ -6,8 +6,12 @@ const Property_type = require('./Property_type')
 const Status = require('./Status')
 const Cities = require('./Cities')
 const User = require('./User')
+const Customer = require('./Customer')
 const Brokers = require('./Brokers')
-
+const Residential_sales = require('./Residential_sales')
+const Commercial_sales = require('./Commercial_sales')
+const Cheques = require('./Cheques');
+const Properties = require('./Properties');
 
 Residential.belongsTo(Cities,{
   foreignKey: 'city_id'
@@ -15,6 +19,7 @@ Residential.belongsTo(Cities,{
 Cities.hasMany(Residential, {
   foreignKey: 'city_id',
 });
+
 Residential.belongsTo(Rent,{
   foreignKey: 'duration_id'
 });
@@ -66,12 +71,42 @@ Brokers.belongsTo(User, {
   foreignKey: 'user_id',
 });
 
+ 
+Cheques.belongsTo(Customer,{
+  foreignKey: 'customer_id',
+})
+
 Residential.belongsTo(User, {
   foreignKey: 'user_id',
 });
 Commercial.belongsTo(User, {
   foreignKey: 'user_id',
 });
+
+
+
+Residential_sales.belongsTo(User, {
+  foreignKey: 'user_id',
+});
+Residential_sales.belongsTo(Customer, {
+  foreignKey: 'customer_id',
+});
+Residential_sales.belongsTo(Residential, {
+  foreignKey: 'residential_id',
+});
+Residential_sales.hasMany(Cheques);
+
+
+Commercial_sales.belongsTo(User, {
+  foreignKey: 'user_id',
+});
+Commercial_sales.belongsTo(Customer, {
+  foreignKey: 'customer_id',
+});
+Commercial_sales.belongsTo(Commercial, {
+  foreignKey: 'commercial_id', 
+});
+Commercial_sales.hasMany(Cheques);
 
 
 module.exports = {
@@ -82,5 +117,10 @@ module.exports = {
   Property_type,
   Commercial,
   Rent,
-  Residential
+  Residential,
+  Customer,
+  Cheques,
+  Commercial_sales,
+  Residential_sales,
+  Properties
 };
